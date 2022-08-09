@@ -1,0 +1,44 @@
+{
+  "name": "feed-consumer",
+  "version": "1.0.0",
+  "main": "src/app.ts",
+  "scripts": {
+    "build": "rimraf ./build && tsc",
+    "start": "nodemon"
+  },
+  "author": "Mihailo Stupar",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cheerio": "^1.0.0-rc.12",
+    "cron": "^2.1.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongodb": "^4.8.1",
+    "multer": "^1.4.5-lts.1",
+    "natural": "^5.2.3",
+    "node-fetch": "^2.6.6",
+    "pubsub-js": "^1.9.4",
+    "reflect-metadata": "^0.1.13",
+    "routing-controllers": "^0.9.0",
+    "rss-parser": "^3.12.0",
+    "typedi": "^0.10.0"
+  },
+  "peerDependencies": {
+    "class-transformer": "^0.3.1",
+    "class-validator": "^0.12.2"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.2",
+    "@types/cron": "^2.0.0",
+    "@types/express": "^4.17.13",
+    "@types/multer": "^1.4.7",
+    "@types/natural": "^5.1.1",
+    "@types/node": "^18.6.2",
+    "@types/node-fetch": "^2.6.2",
+    "@types/pubsub-js": "^1.8.3",
+    "nodemon": "^2.0.19",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
+  }
+}

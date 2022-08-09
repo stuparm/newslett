@@ -1,0 +1,81 @@
+version: "3.8"
+
+services:
+
+  feedconsumer:
+    hostname: feedconsumer
+    image: stupar/newslett-feed-consumer:0.0.4
+    container_name: feedconsumer
+    restart: on-failure
+    ports:
+      - 3001:3001
+    expose:
+      - "3001"
+    environment:
+      - STORAGE_MONGO_CONN_STRING=mongodb://mongo:27017/?replicaSet=rs0
+    networks:
+      - newslettnetwork
+
+  contentinquiry:
+    hostname: contentinquiry
+    image: stupar/newslett-content-inquiry:0.0.5
+    container_name: contentinquiry
+    restart: on-failure
+    ports:
+      - 3002:3002
+    expose:
+      - "3002"
+    environment:
+      - STORAGE_MONGO_CONN_STRING=mongodb://mongo:27017/?replicaSet=rs0
+    networks:
+      - newslettnetwork
+
+  nginx:
+    hostname: newslett
+    image: nginx
+    container_name: nginx
+    restart: on-failure
+    ports:
+      - 3003:80
+    networks:
+      - newslettnetwork
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+
+
+     
+  # mongo:
+  #   hostname: mongo
+  #   image: mongo:4.4.3
+  #   container_name: mongo
+  #   restart: on-failure
+  #   ports:
+  #     - 27017:27017
+  #   expose:
+  #     - "27017"
+  #   networks:
+  #     - newslettnetwork     
+  #   healthcheck:
+  #    test: test $$(echo "rs.initiate().ok() || rs.slaveOk().ok || rs.status().ok" | mongo --quiet) -eq 1
+  #    interval: 10s
+  #    start_period: 30s
+  #   entrypoint: [ "/usr/bin/mongod", "--replSet", "rs0" ]
+  
+
+
+networks: 
+  newslettnetwork: 
+    external: true
+
+
+
+
+
+
+  # docker network create newslettnetwork
+  # docker run --rm -d -p 27017:27017 -h $(hostname) --network newslettnetwork --add-host=host.docker.internal:host-gateway --name mongo mongo:4.4.3 --replSet=rs0 && sleep 4 && docker exec mongo mongo --eval "rs.initiate();"
+
+
+
+# docker run --rm -d -p 27017:27017 -h host.docker.internal --network newslettnetwork --add-host=host.docker.internal:host-gateway --name mongo mongo:4.4.3 --replSet=test && sleep 4 && docker exec mongo mongo --eval "rs.initiate();"
+
