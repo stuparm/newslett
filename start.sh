@@ -4,13 +4,12 @@ docker network create newslettnetwork
 
 echo 'starting the mongo database (with replica set enabled) ...'
 docker run --rm -d -p 27017:27017 -h $(hostname) \
-   	--add-host=host.docker.internal:host-gateway \
    	--network newslettnetwork \
    	--name mongo \
    	mongo:4.4.3 --replSet=rs0 && \
    	sleep 4 && \
    	docker exec mongo mongo --eval "rs.initiate();"
-
+  # --add-host=host.docker.internal:host-gateway \
 
 echo 'staring newslett containers as part of docker-compose <feedconsumer>, <contentinquiry>, <nginx> ...'
 docker-compose up -d
