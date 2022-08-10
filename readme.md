@@ -299,13 +299,15 @@ This will stop all containers and remove the created docker network.
 
 ## Miscellaneous
 
-The `npm audit` command prints out 2 `high` vulnerabilities. 
+The `npm audit` command prints out 2 `high` vulnerabilities:
+
+<br>
 
 One is from `fetch` lirary that could expose 'cookie' data to third party. Since the solution does not use cookies, this warning is ignored.
 
 Another one is from `dicer` library. It has the issue with multipart requests, so the following snippet is added to nginx.conf 
 ```
-if ($http_content_type ~* "multipart/form-data") {
+if ($http_content_type ~* "multipart") {
     return 400;
 }
 ```
