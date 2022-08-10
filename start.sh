@@ -7,7 +7,6 @@ docker run --rm -d -p 27017:27017 -h $(hostname) \
    	--add-host=host.docker.internal:host-gateway \
    	--network newslettnetwork \
    	--name mongo \
-   	--volume ${PWD}/mongo-setup.js:/etc/mongo/mongo-setup.js \
    	mongo:4.4.3 --replSet=rs0 && \
    	sleep 4 && \
    	docker exec mongo mongo --eval "rs.initiate();"
