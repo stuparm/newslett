@@ -18,7 +18,7 @@ echo 'staring newslett containers as part of docker-compose <feedconsumer>, <con
 docker-compose up -d
 
 
-echo 'wait for few seconds and execute curl POST request to register <decrypt> rss feed...'
+echo 'wait for few seconds and execute curl POST request to register <cryptopotato> rss feed...'
 sleep 4
 curl --location --request POST 'localhost:3003/newslett/api/feed/rss' \
 --header 'Content-Type: application/json' \
