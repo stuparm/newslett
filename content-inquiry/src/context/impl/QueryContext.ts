@@ -1,12 +1,10 @@
 
 import { Context } from '../Context';
 import { Query } from '../../models/Query';
-import { TokenStorage } from '../../storage/TokenStorage';
-import Container, { Service } from 'typedi';
-import { StorageContext } from './StorageContext';
+import { Service } from 'typedi';
+
 import { QueryHandler } from '../../query/QueryHandler';
 import { SubscriptionQueryHandler } from '../../query/SubscriptionQueryHandler';
-import { printTableHeader, printRow } from '../../util/Stdout';
 
 @Service()
 export class QueryContext extends Context {

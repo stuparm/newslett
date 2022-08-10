@@ -18,5 +18,4 @@ export default  {
 
     event_content: 'event_content_local'
 
-
 }

@@ -26,22 +26,8 @@ export class MongoTokenStorage extends TokenStorage {
 
         this.listenForFeedChange();
 
-        
-
     }
 
-   
-
-    // async upsertToken(token: string, count: number, guid: string) {
-    //     const query = {token: token};
-    //     const item = {
-    //         count: count,
-    //         guid: guid
-    //     }
-    //     const updateDoc = { $push : {"items" : item} };
-    //     const options = { upsert: true };
-    //     await this.tokenCollection?.updateOne(query, updateDoc, options);
-    // }
 
     async findOccurences(tokens: string[]): Promise<Map<string,Occurence[]>> {
         

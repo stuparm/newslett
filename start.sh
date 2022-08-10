@@ -23,10 +23,10 @@ sleep 4
 curl --location --request POST 'localhost:3003/newslett/api/feed/rss' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "rssUrl":"https://decrypt.co/feed",
-    "name":"decrypt",
-    "contentLocation":"GUID",
-    "contentDomSelector":".text-body",
+    "rssUrl":"https://cryptopotato.com/feed",
+    "name":"cryptopotato",
+    "contentLocation":"CONTENT_ENCODED",
+    "contentDomSelector":"p",
     "externalLink":"LINK"
 }'
 

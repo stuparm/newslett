@@ -13,7 +13,4 @@ export default class RssContext extends Context {
         console.log(`>>> Rss context is started`);
     }
 
-    status() {
-        return '';
-    }
 }

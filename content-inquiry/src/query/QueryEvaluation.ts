@@ -2,12 +2,10 @@ import { Occurence } from "../models/Occurence";
 import { Query } from '../models/Query';
 import natural from 'natural';
 
-
 const OR = 'OR';
 const AND = 'AND';
 
 
-// export class QueryEvaluation {
 export function evaluateSingle(query: Query, guid: string, tokens: string[]): Occurence | undefined{
     const occurences : Map<string, Occurence[]> 
             = new Map(tokens.map(token =>  [ token, [ new Occurence(guid,1) ] ] ));
@@ -26,10 +24,7 @@ export function evaluate(query: Query, map: Map<string, Occurence[]>): Occurence
     const result = execute(postfix, map);
     const filteredResult : Occurence[] = removeDuplicates(result);
     return filteredResult;
-
-
 }
-
 
 
 function toPostfix(text: string): string[] {
@@ -102,9 +97,6 @@ function execute(postfixQueue: string[], map: Map<string, Occurence[]>): Occuren
     })
 
     return stack[0];
-
-
-
 }
 
 function intersection(arr1: Occurence[], arr2: Occurence[]): Occurence[] {

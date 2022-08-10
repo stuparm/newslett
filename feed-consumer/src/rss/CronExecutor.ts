@@ -3,7 +3,6 @@ import { Service, Container } from 'typedi';
 import config from "../config";
 import { FeedStorage } from '../storage/FeedStorage';
 import StorageContext from '../context/impl/StorageContext';
-import { RssMetadata } from '../model/RssMetadata';
 import { RssParser } from './RssParser';
 
 @Service()

@@ -20,7 +20,6 @@ export class WebContext extends Context {
 
     startWebServer() {
 
-
         const app = express();
         const server = http.createServer(app);      
       

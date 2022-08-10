@@ -8,8 +8,6 @@ import { Container } from 'typedi';
 import StorageContext from '../context/impl/StorageContext';
 
 
-
-
 function handleContent(topic: string, contentEvent: ContentEvent) {
     const tokens : string[] = simplify(contentEvent.content);
     
@@ -28,7 +26,6 @@ function handleContent(topic: string, contentEvent: ContentEvent) {
     const link = contentEvent.link;
     
     storage.storeFeed(guid, link); 
-    // console.log(`{store event -> ${guid} : ${tokens.length}}`);
     storage.createEvent(guid, Object.keys(countDict))
 
 

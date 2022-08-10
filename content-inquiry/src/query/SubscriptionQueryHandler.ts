@@ -24,7 +24,6 @@ export class SubscriptionQueryHandler {
             
             const guid = event.guid;
             const tokens = event.tokens;
-            // console.log(`internal event received / pubsub -> ${guid} -> ${tokens.length}`);
             this.subscriptions.forEach((func, query) => {
                 const occurence : Occurence | undefined = evaluateSingle(query,guid, tokens); 
                 if (occurence !== undefined) {

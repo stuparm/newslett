@@ -25,16 +25,6 @@ function bootstrapServer() {
     });
 }
 
-
-function getStatus() {
-    contexts.forEach(
-        context => { 
-            context.status();
-    });  
-    
-}
-
-
 bootstrapServer();
 
 

@@ -33,21 +33,15 @@ export class RssParser {
 
             const guid = item.guid!;
             const exist = await this.storage.checkSingleFeed(guid);
-            // console.log(`${guid} exist -> ${exist}`);
             if (!exist) {
                 
-            
                 const link = this.getExternalLink(metadata, item);
-                
-
                 const content = await getContent(metadata, item);
-
                 const contentEvent : ContentEvent = {
                     content: content!,
                     guid: item.guid!,
                     link: link 
                 };
-                // console.log(`publish content internaly ${contentEvent.guid}`);
                 publishContent(contentEvent!);
             }
 

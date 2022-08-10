@@ -6,19 +6,11 @@ import { Service } from 'typedi';
 export default class IndexContext extends Context {
 
 
-
-
     async load() {
 
         subscribe();
         console.log(`>>> Index context is started`);
 
     }
-    status(): string {
-        return '';
-    }
-
-
-
 
 }

@@ -8,14 +8,12 @@ import { FeedStorage } from '../storage/FeedStorage';
 @JsonController('/rss')
 export class RssController {
 
-
   feedStorage: FeedStorage;
 
   constructor() {
     const storageContext: StorageContext = Container.get(StorageContext);
     this.feedStorage = storageContext.getStorage()!;
   }
-
 
   @Post()
   post(@Body() metadata: any) {
@@ -41,5 +39,4 @@ export class RssController {
     return {status: 'ok'};
   }
   
-
 }
